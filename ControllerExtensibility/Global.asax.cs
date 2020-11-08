@@ -15,8 +15,13 @@ namespace ControllerExtensibility
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+            
+            //registering a custom controller factory
+            //for custome controller factory ControllerBuilder.Current.SetControllerFactory(new CustomControllerFactory());
 
-            ControllerBuilder.Current.SetControllerFactory(new CustomControllerFactory());
+            //registering a custom controller activator
+            //for default controller factory
+            ControllerBuilder.Current.SetControllerFactory(new DefaultControllerFactory(new CustomControllerActivator()));
         }
     }
 }
