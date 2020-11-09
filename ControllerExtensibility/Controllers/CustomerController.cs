@@ -28,5 +28,13 @@ namespace ControllerExtensibility.Controllers
                 ActionName = "List"
             });
         }
+
+
+        //action invoker gives preference to actions with selectors to resolve ambiguity
+        [NonAction]
+        public ActionResult MyAction()
+        {
+            return View();
+        }
     }
 }
