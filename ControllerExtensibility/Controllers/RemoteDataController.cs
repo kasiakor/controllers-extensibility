@@ -9,10 +9,13 @@ namespace ControllerExtensibility.Controllers
         // GET: RemoteData
         //public ActionResult Data()
         //{
-            //RemoteService service = new RemoteService();
-            //string data = service.GetRemoteData();
-            //Task object calls GetRemoteData()
-            public async Task<ActionResult> Data()
+        //RemoteService service = new RemoteService();
+        //string data = service.GetRemoteData();
+
+
+        //asynchrocous controller - async await keywords
+        //Task object calls GetRemoteData()
+        public async Task<ActionResult> Data()
             {
                 string data = await Task<string>.Factory.StartNew(() =>
                {
@@ -22,8 +25,13 @@ namespace ControllerExtensibility.Controllers
                 return View((object)data);
             }
 
-            //asynchrocous controller - async await keywords
-            
+        //consume anynchronous method GetRemoteAsyncData
+        public async Task<ActionResult> ConsumeAsyncMethod()
+        {
+            string data = await new RemoteService().GetRemoteDataAsync();
+            return View("Data", (object)data);
+            }
         }
     }
+  
 //}
