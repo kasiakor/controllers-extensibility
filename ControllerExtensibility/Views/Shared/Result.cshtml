@@ -12,5 +12,10 @@
 <body>
     <div>Controller: @Model.ControllerName</div>
     <div>  Action: @Model.ActionName</div>
+
+    @*Message from Session: Hello  when SessionStateAttribute not applied *@
+    @*<div>  Message from Session: @Session["Message"]</div>*@
+
+    <div>  ViewBag Message is : @ViewBag.Message</div>
 </body>
 </html>
