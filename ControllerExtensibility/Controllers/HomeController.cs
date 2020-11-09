@@ -32,5 +32,12 @@ namespace ControllerExtensibility.Controllers
                 ActionName = "Localndex"
             });
         }
+
+        //if action invoker will not find the action from request will throw a 404 error
+        //to override this behaviour use HandleUnknownAction
+        protected override void HandleUnknownAction(string actionName)
+        {
+            Response.Write(string.Format("You requested {0} that was not found", actionName));
+        }
     }
 }
